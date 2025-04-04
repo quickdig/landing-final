@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --prinary-color:#FB0308;
+  --secondary-color:#008347;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+  overflow-y: auto;
+  background: white;
+}
+
+@font-face {
+  font-family: "FONTSPRINGDEMO-IntegralCFBoldItalic";
+  src: url("/css/fonts/FONTSPRINGDEMO-IntegralCFBoldItalic.woff2") format("woff2"),
+    url("/css/fonts/FONTSPRINGDEMO-IntegralCFBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FONTSPRINGDEMO-IntegralCFDemiBoldItalic";
+  src: url("/css/fonts/FONTSPRINGDEMO-IntegralCFDemiBoldItalic.woff2")
+      format("woff2"),
+    url("/css/fonts/FONTSPRINGDEMO-IntegralCFDemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FONTSPRINGDEMO-IntegralCFBoldRegular";
+  src: url("/css/fonts/FONTSPRINGDEMO-IntegralCFBoldRegular.woff2") format("woff2"),
+    url("/css/fonts/FONTSPRINGDEMO-IntegralCFBoldRegular.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FONTSPRINGDEMO-IntegralCFExtraBoldRegular";
+  src: url("/css/fonts/FONTSPRINGDEMO-IntegralCFExtraBoldRegular.woff2")
+      format("woff2"),
+    url("/css/fonts/FONTSPRINGDEMO-IntegralCFExtraBoldRegular.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}     
+
+@font-face {
+  font-family: "FONTSPRINGDEMO-IntegralCFDemiBoldRegular";
+  src: url("/css/fonts/FONTSPRINGDEMO-IntegralCFDemiBoldRegular.woff2")
+      format("woff2"),
+    url("/css/fonts/FONTSPRINGDEMO-IntegralCFDemiBoldRegular.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MODERNIZ';
+  src: url('/css/fonts/Moderniz.woff2') format('woff2'),
+  url('/css/fonts/Moderniz.woff2') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+.font-MODERNIZ {
+  font-family: 'MODERNIZ';
+  
+}
+
+.bllut::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50px;
+  background: #667085;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+input:focus-visible{
+  outline: none
+}
+.bullet::before{
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: #000;
+  position: absolute;
+  left: -15px;
+  top: 10px;
+}
+@media screen and (max-width:1024px) {
+  .container{
+    max-width: 95%;
+  }
+  .header{
+    max-width: 100% !important;
+  }
+}
