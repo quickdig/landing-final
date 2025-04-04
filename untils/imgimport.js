@@ -1,5 +1,5 @@
 export const back = require("../public/webImages/image.png");
-export const logo = require("../public/webImages/logo.png");
+export const logo = require("../public/webImages/logo_orginal.png");
 export const phone = require("../public/webImages/Vectorphone.png");
 export const mail = require("../public/webImages/mail.png");
 export const banner = require("../public/webImages/banner.png");

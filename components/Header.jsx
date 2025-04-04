@@ -4,6 +4,15 @@ import { logo, phone, mail } from '@/untils/imgimport';
 import Image from 'next/image';
 
 const Header = () => {
+
+    const handleScrollClick = (params) => {
+        const el = document.getElementById(params)
+
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" })
+        }
+    }
+
     return (
         <header className="bg-white/10 backdrop-blur-[25px] header z-10 text-white py-4 absolute container left-0 right-0 mx-auto mt-4 max-[1000px]:mt-0 rounded-[6px] max-[1024px]:w-full">
             <div className="container mx-auto flex flex-wrap items-center justify-between px-4">
@@ -21,14 +30,14 @@ const Header = () => {
                 <nav className="w-auto">
                     <ul className="flex flex-wrap items-center justify-end max-[700px]:justify-center gap-4 max-[1000px]:gap-2 text-sm">
                         <li className='cursor-pointer hover:border-b-2 border-[#401A89]'>
-                            <a href="#luxury">Luxury Cars</a>
+                            <a onClick={() => handleScrollClick("luxury")}>Luxury Cars</a>
                         </li>
                         <li className='cursor-pointer hover:border-b-2 border-[#401A89]'>
-                            <a href="#contact">Contact Us</a>
+                            <a onClick={() => handleScrollClick("booknow")}>Book Now</a>
                         </li>
 
                         <li className='cursor-pointer hover:border-b-2 border-[#401A89]'>
-                            <a href="#faq">FAQs</a>
+                            <a onClick={() => handleScrollClick("faq")}>FAQs</a>
                         </li>
                         {/* Phone Section */}
                         <li className="flex items-center gap-2 max-[700px]:flex-wrap text-center">
@@ -38,9 +47,9 @@ const Header = () => {
                             <div>
                                 <div className="text-secondary leading-[1] text-sm max-[1000px]:text-xs">Call Us Now</div>
                                 <dd className="m-0 text-xs flex">
-                                    <a className="text-white block max-[450px]:text-[10px]" href="">800 78425</a>
+                                    <a className="text-white block max-[450px]:text-[10px]" href="tel:97180078425">800 78425</a>
                                     <span className="text-secondary px-2 max-[450px]:hidden">|</span>
-                                    <a className="text-white block max-[450px]:text-[10px]" href="">971 4 408 7300</a>
+                                    <a className="text-white block max-[450px]:text-[10px]" href="tel:97144087300">971 4 408 7300</a>
                                 </dd>
                             </div>
                         </li>

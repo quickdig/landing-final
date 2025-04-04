@@ -17,17 +17,17 @@ const Section5 = () => {
                     {/* Top Row */}
                     <div className="top_row flex flex-col md:flex-row justify-center pt-12 items-center md:items-start gap-6">
                         <div className="w-full md:w-1/2">
-                            <p className="text-lg pl-5 font-medium text-[#525252] capitalize mb-2">Experience the Freedom, Embrace the Exceptional</p>
+                            <p className="text-lg pl-5 font-medium text-[#525252] capitalize mb-2">Next-Gen Freedom Awaits Your Command</p>
                             <div className="box_leftBorder border-l-2 border-[#401A89] pl-4 mb-2">
                                 <h3 className="text-xl md:text-2xl font-MODERNIZ text-[#401A89] font-bold">
-                                    Unleash your journey: <br />The Drivewise Advantage
+                                    Reach New Destinations with Luxury Auto Rentals
                                 </h3>
                             </div>
                             <p className="text-sm pl-5 md:text-base text-[#525252] leading-normal">
-                                Immerse yourself in a world of possibilities with our extensive range of vehicles. From sleek sedans to rugged SUVs and luxurious convertibles, we have the perfect wheels to match your style, preferences, and the demands of your adventure.
+                                We transform travel dreams into golden experiences. Convertibles for coastal cruises, SUVs for mountain escapes, luxury sedans for urban adventures - each vehicle tells a story. Whatever journey calls you, we have the perfect four-wheeled companion waiting to bring your driving dreams to life. Your ideal rent luxe car is just a reservation away.
                             </p>
 
-                            <button className='bg-[#401A89] ml-5 px-4 py-3 font-extralight text-white rounded-md mt-4'>Explore Now</button>
+                            {/* <button className='bg-[#401A89] ml-5 px-4 py-3 font-extralight text-white rounded-md mt-4'>Explore Now</button> */}
                         </div>
 
                         <div className="w-full md:w-1/2 h-[200px] md:h-[200px] object-contain rounded-t-3xl overflow-hidden">
@@ -50,22 +50,22 @@ const Section5 = () => {
                             <Image
                                 src={carLeft}
                                 alt="carRight"
-                                className="w-full h-full -ml-12 object-contain rounded-t-3xl"
+                                className="w-full h-full -ml-6 object-contain rounded-t-3xl"
                             />
                         </div>
 
                         <div className="w-full md:w-1/2">
-                            <p className="text-lg pl-5 font-medium text-[#525252] capitalize mb-2">Experience the Freedom, Embrace the Exceptional</p>
+                            <p className="text-lg pl-5 font-medium text-[#525252] capitalize mb-2">The Road Awaits: Embrace our Experience</p>
                             <div className="box_leftBorder border-l-2 border-[#401A89] pl-4 mb-2">
                                 <h3 className="text-xl md:text-2xl font-MODERNIZ text-[#401A89] font-bold">
-                                    Unleash your journey: <br />The Drivewise Advantage
+                                    Start Your Adventure with the Luxury Rent a Car
                                 </h3>
                             </div>
                             <p className="text-sm pl-5 md:text-base text-[#525252] leading-normal">
-                                Immerse yourself in a world of possibilities with our extensive range of vehicles. From sleek sedans to rugged SUVs and luxurious convertibles, we have the perfect wheels to match your style, preferences, and the demands of your adventure.
+                                Browse our encyclopedia of 200+ models organized by adventure type and personality match. Sporty coupes for thrill-seekers, spacious SUVs for families, eco-friendly hybrids for the conscious traveler. Flip through our fleet Like turning pages in a book until you find the perfect automotive protagonist for your next chapter.
                             </p>
 
-                            <button className='bg-[#401A89] ml-5 px-4 py-3 font-extralight text-white rounded-md mt-4'>Explore Now</button>
+                            {/* <button className='bg-[#401A89] ml-5 px-4 py-3 font-extralight text-white rounded-md mt-4'>Explore Now</button> */}
                         </div>
                     </div>
 

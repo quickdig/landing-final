@@ -25,26 +25,26 @@ const Section1 = () => {
 
         // ✅ Required fields check
         // if (!formData.fullName || !formData.mobileNo || !formData.email || !formData.carModel) {
-        if (!formData.fullName || !formData.mobileNo || !formData.email ) {
+        if (!formData.fullName || !formData.mobileNo || !formData.email) {
             setMessage('All fields are required!');
             setLoading(false);
             return;
         }
 
-            const form = new FormData();
-            form.append('full_name', formData.fullName);
-            form.append('mobile', formData.mobileNo);
-            form.append('email', formData.email);
-            // form.append('modal', formData.carModel);
+        const form = new FormData();
+        form.append('full_name', formData.fullName);
+        form.append('mobile', formData.mobileNo);
+        form.append('email', formData.email);
+        // form.append('modal', formData.carModel);
 
 
-            axios
-    .post("https://testqds.com/new_quicklease/api/enquiries/request_form", form)
-    .then((response) => {
-        console.log(response);
-        setMessage('Form submitted successfully!');
-    });
-         
+        axios
+            .post("https://testqds.com/new_quicklease/api/enquiries/request_form", form)
+            .then((response) => {
+                console.log(response);
+                setMessage('Form submitted successfully!');
+            });
+
 
 
         // ✅ Form Reset
@@ -65,12 +65,12 @@ const Section1 = () => {
     }, [message]);
 
     return (
-        <section className='container mx-auto'>
+        <section className='container mx-auto' id='booknow'>
             <div className="mx-auto w-full bg-[#401A89] mt-[6rem] max-[1000px]:mt-[3rem] rounded-[10px] max-[1000px]:w-full">
                 <div className='px-20 py-12 flex flex-col gap-6 items-end max-[1000px]:flex-col max-[1000px]:items-center max-[1000px]:px-4'>
                     <div className='w-full'>
                         <h2 className='text-[2rem] max-[1024px]:text-[1.5rem] uppercase text-white font-extrabold leading-[1] font-MODERNIZ text-center'>
-                        Your Luxury Ride is Just One Step Away!
+                            Your Luxury Ride is Just One Step Away!
                         </h2>
                     </div>
                     <form onSubmit={handleSubmit} key={formKey} className='w-full '>

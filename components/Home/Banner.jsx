@@ -2,12 +2,13 @@
 import React, { useEffect } from 'react';
 import { back, banner } from '@/untils/imgimport';
 import Image from 'next/image';
-
+import { SplashCursor } from '../ui/splash-cursor';
 
 const Banner = () => {
 
   return (
     <>
+      <SplashCursor className='hidden' />
       <div className='relative h-screen max-[1024px]:h-[60vh] max-[1024px]:mb-[7rem]'>
         <Image src={back} alt='back' className='absolute inset-0 w-full h-full object-cover ' />
         <div className='absolute inset-0 bg-gradient-to-r from-black to-transparent '></div>

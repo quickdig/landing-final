@@ -1,0 +1,60 @@
+<Image src={logo} alt='' className='w-20' />
+<div className=''>
+    <span className='font-extralight '>let’s talk</span>
+    <div className='flex justify-between max-[1000px]:flex-col'>
+        <div className='text-[2rem] max-[1000px]:text-[1.5rem]'>bookings@quicklease.ae</div>
+        <div className='flex gap-8 max-[1000px]:flex-col max-[1000px]:gap-4 max-[1000px]:mt-4'>
+            <ul className='font-extralight'>
+                <Link href="https://www.facebook.com/QuickLeaseCarRental/">
+                <li>Facebook</li>
+                </Link>
+                <Link href="https://www.instagram.com/quickleasecarrental/">
+                <li>Instagram</li>
+                </Link>
+                <Link href="https://www.linkedin.com/company/quick-lease-car-rental/about/">
+                <li>Linkedln</li>
+                </Link>
+            </ul>
+            <ul>
+                <li className='font-bold text-[1.2rem]'>Working hours</li>
+                <li className='font-extralight'>Mon - Sat: 8:30 - 8:30</li>
+                <li className='font-extralight'>Sunday: 10:00 - 8:30</li>
+            </ul>
+        </div>
+    </div>
+    <div className='flex gap-8 max-[1000px]:flex-col max-[1000px]:mt-4 '>
+        <div className='w-[30%] max-[1000px]:w-full'>
+            <div className='font-bold text-[1.2rem]'>Address</div>
+            <p className='font-extralight '>Shop no. 18, Al Raha Building, Opposite City Max Hotel Behind Mall Of
+                Emirates, Al Barsha 1, Dubai
+                P.O. Box: 88152 – Dubai – UAE</p>
+        </div>
+        <div>
+            <div className='font-bold text-[1.2rem]'>Branches</div>
+            <ul className='font-extralight'>
+                <li>Barsha H.O: +971 (4) 40-87-300</li>
+                <li>Emergency: +971 (56) 50-76-010</li>
+                <li>Emergency: +971 (50) 30-27-866</li>
+            </ul>
+        </div>
+    </div>
+    <div
+        className='flex justify-between items-end mt-8 max-[1000px]:flex-col max-[1000px]:items-start max-[1000px]:text-center '>
+        <form onSubmit={handleSubscribe}
+            className='max-[1000px]:flex max-[1000px]:flex-col max-[1000px]:justify-center max-[1000px]:mx-auto border-white border-b-2'>
+            <div className='max-[1000px]:text-center'>Hey There! Subscribe to Our Newsletter!</div>
+            <div className="flex items-center">
+                <input type="email" placeholder='Email Address' value={email} onChange={(e)=> setEmail(e.target.value)}
+                className='bg-transparent py-4 w-full text-white border-b border-gray-400 outline-none'
+                />
+                <button type="submit" disabled={loading} className="ml-2">
+                    <Image src={farrow} alt='' className='w-[2.5rem] h-[2.5rem]' />
+                </button>
+            </div>
+            {message && <p className="text-sm mt-2 text-gray-300">{message}</p>}
+        </form>
+        <div className='w-[30%] font-extralight max-[1000px]:w-full max-[1000px]:mt-4'>
+            © 2025. Copyright Quick Lease Car RentalsAll Rights Reserved.
+        </div>
+    </div>
+</div>

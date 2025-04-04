@@ -3,6 +3,7 @@ import { useState } from "react";
 import { logo, footerbg, farrow, whatsapp } from '@/untils/imgimport';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaFacebookSquare, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -45,71 +46,98 @@ const Footer = () => {
   };
   return (
     <>
-      <div className='relative bg-[#1F1E21] px-8 max-[1000px]:px-4' id="contact">
-        <div className='absolute inset-0 '>
-          <Image src={footerbg} alt='' className='w-full h-full object-cover ' />
+      <div className="relative bg-[#1F1E21] px-8 max-[1000px]:px-4" id="contact">
+
+        <div className="absolute inset-0 z-0">
+          <Image src={footerbg} alt="Footer background" className="w-full h-full object-cover" />
         </div>
-        <div className="container mx-auto text-white py-12 max-[1000px]:text-center z-50 relative">
-          <Image src={logo} alt='' className='max-[1000px]:mx-auto' />
-          <div className=''>
-            <span className='font-extralight '>let’s talk</span>
-            <div className='flex justify-between max-[1000px]:flex-col'>
-              <div className='text-[2rem] max-[1000px]:text-[1.5rem]'>bookings@quicklease.ae</div>
-              <div className='flex gap-8 max-[1000px]:flex-col max-[1000px]:gap-4 max-[1000px]:mt-4'>
-                <ul className='font-extralight'>
-                  <Link href="https://www.facebook.com/QuickLeaseCarRental/" ><li>Facebook</li></Link>
-                  <Link href="https://www.instagram.com/quickleasecarrental/"><li>Instagram</li></Link>
-                  <Link href="https://www.linkedin.com/company/quick-lease-car-rental/about/"><li>Linkedln</li></Link>
-                </ul>
-                <ul >
-                  <li className='font-bold text-[1.2rem]'>Working hours</li>
-                  <li className='font-extralight'>Mon - Sat: 8:30 - 8:30</li>
-                  <li className='font-extralight'>Sunday: 10:00 - 8:30</li>
-                </ul>
-              </div>
+
+        <div className="relative z-10 text-white container mx-auto px-20 items-center py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          <div className="space-y-4">
+            <Image src={logo} alt="Logo" className="w-20" />
+            <span className="font-extralight block">let’s talk</span>
+            <div className="text-2xl md:text-3xl break-words">bookings@quicklease.ae</div>
+
+            <div>
+              <div className="font-bold text-lg mt-4">Address</div>
+              <p className="font-extralight text-sm leading-relaxed">
+                Shop no. 18, Al Raha Building, Opposite City Max Hotel Behind Mall Of Emirates,
+                Al Barsha 1, Dubai<br />
+                P.O. Box: 88152 – Dubai – UAE
+              </p>
             </div>
-            <div className='flex gap-8 max-[1000px]:flex-col max-[1000px]:mt-4 '>
-              <div className='w-[30%] max-[1000px]:w-full'>
-                <div className='font-bold text-[1.2rem]'>Address</div>
-                <p className='font-extralight '>Shop no. 18, Al Raha Building, Opposite City Max Hotel Behind Mall Of Emirates, Al Barsha 1, Dubai
-                  P.O. Box: 88152 – Dubai – UAE</p>
+            <form onSubmit={handleSubscribe} className="mt-8 border-b-2 border-white pb-2">
+              <div className="text-sm mb-2">Hey There! Subscribe to Our Newsletter!</div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="bg-transparent py-2 w-full md:w-auto flex-1 text-white outline-none placeholder-gray-400"
+                />
+                <button type="submit" disabled={loading} className="shrink-0 mt-2 md:mt-0">
+                  <Image src={farrow} alt="Submit" className="w-10 h-10" />
+                </button>
               </div>
-              <div>
-                <div className='font-bold text-[1.2rem]'>Branches</div>
-                <ul className='font-extralight'>
-                  <li>Barsha H.O: +971 (4) 40-87-300</li>
-                  <li>Emergency: +971 (56) 50-76-010</li>
-                  <li>Emergency: +971 (50) 30-27-866</li>
-                </ul>
-              </div>
-            </div>
-            <div className='flex justify-between items-end mt-8 max-[1000px]:flex-col max-[1000px]:items-start max-[1000px]:text-center '>
-              <form onSubmit={handleSubscribe} className='max-[1000px]:flex max-[1000px]:flex-col max-[1000px]:justify-center max-[1000px]:mx-auto border-white border-b-2'>
-                <div className='max-[1000px]:text-center'>Hey There! Subscribe to Our Newsletter!</div>
-                <div className="flex items-center">
-                  <input
-                    type="email"
-                    placeholder='Email Address'
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className='bg-transparent py-4 w-full text-white border-b border-gray-400 outline-none'
-                  />
-                  <button type="submit" disabled={loading} className="ml-2">
-                    <Image src={farrow} alt='' className='w-[2.5rem] h-[2.5rem]' />
-                  </button>
-                </div>
-                {message && <p className="text-sm mt-2 text-gray-300">{message}</p>}
-              </form>
-              <div className='w-[30%] font-extralight max-[1000px]:w-full max-[1000px]:mt-4'>
-                © 2025. Copyright Quick Lease Car RentalsAll Rights Reserved.
-              </div>
+              {message && <p className="text-sm mt-2 text-gray-300">{message}</p>}
+            </form>
+          </div>
+
+          <div className="space-y-4">
+            <div className="font-bold text-lg">Branches</div>
+            <ul className="font-extralight text-sm space-y-1">
+              <li>Barsha H.O: <Link href={"tel:97144087300"}>+971 (4) 40-87-300</Link></li>
+              <li>Emergency: <Link href={"tel:9715076010"}>+971 (56) 50-76-010</Link></li>
+              <li>Emergency: <Link href={"tel:971503027866"}>+971 (50) 30-27-866</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <div className="flex flex-col md:flex-row md:justify-between gap-4">
+
+              <ul className="font-extralight text-left text-sm space-y-1">
+                <li className="font-bold text-lg">Social Links</li>
+                <li className="flex items-center"><FaFacebookSquare />&nbsp;
+                  <Link className="ml-2" href="https://www.facebook.com/QuickLeaseCarRental/" target="_blank">
+                    Facebook
+                  </Link>
+                </li>
+                <li className="flex items-center"><FaInstagramSquare />&nbsp;
+                  <Link className="ml-2" href="https://www.instagram.com/quickleasecarrental/" target="_blank">
+                    Instagram
+                  </Link>
+                </li>
+                <li className="flex items-center">
+                  <FaLinkedin />&nbsp;
+                  <Link className="ml-2" href="https://www.linkedin.com/company/quick-lease-car-rental/about/" target="_blank">
+                    LinkedIn
+                  </Link>
+                </li>
+              </ul>
+
+
+              <ul className="space-y-1 text-sm">
+                <li className="font-bold text-lg">Working hours</li>
+                <li className="font-extralight">Mon - Sat: 8:30 - 8:30</li>
+                <li className="font-extralight">Sunday: 10:00 - 8:30</li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <div className="text-white font-extralight text-sm mt-6 px-2 pb-2 max-w-screen-xl mx-auto text-center">
+          © 2025. Copyright Quick Lease Car Rentals. All Rights Reserved.
+        </div>
+
         <button className="fixed bottom-8 right-8 max-[700px]:right-4 z-50">
-          <Link href="https://api.whatsapp.com/send?phone=97144087300" ><Image src={whatsapp} className='w-[5rem] max-[700px]:w-[3.5rem] ' alt='whatsapp' /> </Link>
+          <Link href="https://api.whatsapp.com/send?phone=97144087300" target="_blank">
+            <Image src={whatsapp} alt="WhatsApp" className="w-20 max-[700px]:w-14" />
+          </Link>
         </button>
       </div>
+
     </>
   );
 };
