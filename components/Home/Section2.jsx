@@ -194,6 +194,7 @@ import { c200One, c200Two, c200Three, c200Four } from '@/untils/imgimport';
 import { e200One, e200Two, e200Three, e200Four } from '@/untils/imgimport';
 import { G63One, G63Two, G63Three, G63Four } from '@/untils/imgimport';
 import { RangeOne, RangeTwo, RangeThree, RangeFour } from '@/untils/imgimport';
+import { bentlyOne, bentlyTwo, bentlyThree, bentlyFour } from '@/untils/imgimport';
 
 const Section2 = () => {
   const [formData, setFormData] = useState({
@@ -202,9 +203,10 @@ const Section2 = () => {
     email: '',
     carModel: ''
   });
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modeldata, setModeldata] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('Form Submited Successfully');
   const [formKey, setFormKey] = useState(Date.now());
 
   // ✅ Proper handleChange function
@@ -221,7 +223,7 @@ const Section2 = () => {
     setLoading(true);
     setMessage('');
 
-    if (!formData.fullName || !formData.mobileNo || !formData.email || !formData.carModel) {
+    if (!formData.fullName || !formData.mobileNo || !formData.email) {
       setMessage('All fields are required!');
       setLoading(false);
       return;
@@ -231,18 +233,21 @@ const Section2 = () => {
     form.append('full_name', formData.fullName);
     form.append('mobile', formData.mobileNo);
     form.append('email', formData.email);
-    form.append('modal', formData.carModel);
+    form.append('modal', modeldata.title);
+
+    console.log(...form);
 
     try {
       const response = await axios.post("https://testqds.com/new_quicklease/api/enquiries/request_form", form);
       console.log(response);
       setMessage('Form submitted successfully!');
     } catch (error) {
+      console.log(error)
       console.error('Axios Error:', error);
       setMessage('Submission failed. Please try again.');
     }
 
-    setFormData({ fullName: '', mobileNo: '', email: '', carModel: '' });
+    setFormData({ fullName: '', mobileNo: '', email: '' });
     setFormKey(Date.now());
     setLoading(false);
   };
@@ -251,6 +256,7 @@ const Section2 = () => {
     if (message) {
       const timer = setTimeout(() => {
         setMessage('');
+        setIsModalOpen(false)
       }, 5000);
       return () => clearTimeout(timer);
     }
@@ -265,6 +271,7 @@ const Section2 = () => {
       wicon: whatsapp,
       picon: cardphone,
       images: [
+        c200One,
         c200Two,
         c200Three,
         c200Four
@@ -285,6 +292,7 @@ const Section2 = () => {
       wicon: whatsapp,
       picon: cardphone,
       images: [
+        e200One,
         e200Two,
         e200Three,
         e200Four
@@ -305,6 +313,7 @@ const Section2 = () => {
       wicon: whatsapp,
       picon: cardphone,
       images: [
+        G63One,
         G63Two,
         G63Three,
         G63Four
@@ -325,6 +334,7 @@ const Section2 = () => {
       wicon: whatsapp,
       picon: cardphone,
       images: [
+        RangeOne,
         RangeTwo,
         RangeThree,
         RangeFour
@@ -339,10 +349,28 @@ const Section2 = () => {
       rate2: "AED 14000",
       rate3: "AED 44000",
     },
+    {
+      title: "Bentley Bentayga S V8",
+      image: bentlyOne,
+      wicon: whatsapp,
+      picon: cardphone,
+      images: [
+        bentlyOne,
+        bentlyTwo,
+        bentlyThree,
+        bentlyFour
+      ],
+      day: "Per Day",
+      week: "Per Week",
+      month: "Per Month",
+      dis: "AED 2700",
+      dis1: "AED 15000",
+      dis2: "AED 46000",
+      rate1: "AED 2650",
+      rate2: "AED 18000",
+      rate3: "AED 58000",
+    },
   ];
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modeldata, setModeldata] = useState("");
 
   const handleModelOpen = (item) => {
     setIsModalOpen(true);
@@ -357,13 +385,13 @@ const Section2 = () => {
     <>
       <section id='luxury'>
         <div className='container mx-auto'>
-          <div className="grid grid-cols-4 max-[1280px]:grid-cols-2 gap-4 py-20 max-[1024px]:py-8 max-[1024px]:grid-cols-1 max-[800px]:grid-cols-1 ">
+          <div className="grid grid-cols-3 max-[1280px]:grid-cols-2 gap-4 py-20 max-[1024px]:py-8 max-[1024px]:grid-cols-1 max-[800px]:grid-cols-1 ">
             {Array.isArray(data) && data.map((item, index) => {
               const { title, image, images, rate1, rate2, rate3, day, month, week, dis, dis1, dis2 } = item
               const [selectedImage, setSelectedImage] = useState(image);
               return (
                 <div key={index} className="flex flex-col justify-between items-center border-2 rounded-3xl border-[#401A89] w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
-                  <div className="image_box relative w-full h-[200px] rounded-t-3xl object-cover overflow-hidden">
+                  <div className="image_box relative w-full h-[300px] rounded-t-3xl object-cover overflow-hidden">
                     <Image src={selectedImage} alt="car" className='w-full h-full object-cover rounded-t-3xl' />
                   </div>
 
@@ -371,7 +399,7 @@ const Section2 = () => {
                     <div className="other_images flex justify-center gap-2 mt-4">
                       {
                         images.map((_v, idx) => (
-                          <div className="lower_image_box relative w-[100px] h-[50px] object-cover" key={idx} onClick={() => setSelectedImage(_v)}>
+                          <div className="lower_image_box relative w-[100px] h-[50px] object-cover" key={idx + 10} onClick={() => setSelectedImage(_v)}>
                             <Image src={_v} alt="car" className='w-full h-full object-cover rounded-md border-2 border-transparent cursor-pointer hover:border-[#401A89] transition' />
                           </div>
                         ))
@@ -381,8 +409,8 @@ const Section2 = () => {
                     <div className="title_box flex flex-row justify-between items-center w-full my-2">
                       <span className="heading text-[#1C1C1C] font-bold font-MODERNIZ text-sm">{title}</span>
                       <div className='flex gap-2'>
-                        <Link href="tel:97144087300"><Image src={cardphone} className='w-8' alt='phone' /></Link>
-                        <Link href="https://api.whatsapp.com/send?phone=97144087300"><Image src={whatsapp} className='w-8' alt='whatsapp' /></Link>
+                        <Link href="tel:971505079801"><Image src={cardphone} className='w-8' alt='phone' /></Link>
+                        <Link href="https://api.whatsapp.com/send?phone=971505079801"><Image src={whatsapp} className='w-8' alt='whatsapp' /></Link>
                       </div>
                     </div>
 
@@ -478,12 +506,14 @@ const Section2 = () => {
                   <div>
                     <label className='text-[10px] mb-1 block'>Mobile No</label>
                     <input
-                      type="text"
+                      type="tel"
                       name="mobileNo"
                       placeholder="Enter Mobile No"
                       className="w-full px-4 py-2 border rounded-[10px]"
                       value={formData.mobileNo}
                       onChange={handleChange}
+                      minLength={10}
+                      maxLength={15}
                       required
                     />
                   </div>
@@ -497,35 +527,25 @@ const Section2 = () => {
                       className="w-full px-4 py-2 border rounded-[10px]"
                       value={formData.email}
                       onChange={handleChange}
+                      pattern='/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/v'
                       required
                     />
                   </div>
 
                   <div>
                     <label className='text-[10px] mb-1 block'>Select Car Model</label>
-                    <select
-                      name="carModel"
-                      className="w-full px-4 py-2 border rounded-[10px]"
-                      value={formData.carModel}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="">{modeldata.title || "Select a car model"}</option>
-                      {data.filter(car => car.title !== modeldata.title).map((car, idx) => (
-                        <option key={idx} value={car.title}>{car.title}</option>
-                      ))}
-                    </select>
+                    <input type="text" name='carModel' value={modeldata.title} className="w-full px-4 py-2 border rounded-[10px]" id='carModel' disabled />
                   </div>
                 </div>
 
-                {message && <p className="text-red-500 text-sm">{message}</p>}
+                {message && <p className="px-5 py-4 w-1/2 mx-auto text-center bg-purple-200 rounded-lg border-2 border-[#401a89] text-purple-950">{message}</p>}
 
                 <button
                   type="submit"
                   className="bg-[#401A89] text-white px-20 py-2 rounded-full mt-4 max-[700px]:w-full"
                   disabled={loading}
                 >
-                  {loading ? 'Sending...' : 'Send'}
+                  {loading ? 'Sending...' : 'Submit'}
                 </button>
               </form>
             </div>

@@ -40,8 +40,8 @@ const Section5 = () => {
                     </div>
 
                     {/* Bottom Row */}
-                    <div className="bottom_row relative flex flex-col pt-12 md:flex-row justify-center items-center md:items-start gap-6">
-                        <div className='absolute -left-16 -top-12'>
+                    <div className="bottom_row relative flex flex-col pt-12 md:flex-row justify-center items-center md:items-start gap-6 max-[700px]:flex-col-reverse">
+                        <div className='absolute -left-16 -top-12 max-[700px]:-z-10'>
                             <svg width="169" height="330" viewBox="0 0 169 330" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M79.2733 1.2968C24.8369 30.7159 -55.3389 102.259 59.4498 153.077C174.239 203.896 175.276 291.746 161.445 329.319" stroke="black" stroke-width="1.13386" stroke-dasharray="11.34 11.34" />
                             </svg>
@@ -50,7 +50,7 @@ const Section5 = () => {
                             <Image
                                 src={carLeft}
                                 alt="carRight"
-                                className="w-full h-full -ml-6 object-contain rounded-t-3xl"
+                                className="w-full h-full -ml-1 object-contain rounded-t-3xl"
                             />
                         </div>
 

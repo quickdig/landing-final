@@ -52,3 +52,8 @@ export const RangeOne = require("../public/webImages/car_images/range_1.png")
 export const RangeTwo = require("../public/webImages/car_images/range_2.png")
 export const RangeThree = require("../public/webImages/car_images/range_3.png")
 export const RangeFour = require("../public/webImages/car_images/range_4.png")
+
+export const bentlyOne = require("../public/webImages/car_images/bentlyOne.webp")
+export const bentlyTwo = require("../public/webImages/car_images/bentlyTwo.webp")
+export const bentlyThree = require("../public/webImages/car_images/bentlyThree.webp")
+export const bentlyFour = require("../public/webImages/car_images/bentlyFour.webp")

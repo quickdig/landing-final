@@ -66,7 +66,7 @@ const Section1 = () => {
 
     return (
         <section className='container mx-auto' id='booknow'>
-            <div className="mx-auto w-full bg-[#401A89] mt-[6rem] max-[1000px]:mt-[3rem] rounded-[10px] max-[1000px]:w-full">
+            <div className="mx-auto w-full bg-[#401A89] mt-[6rem] pb-5 max-[1000px]:mt-[3rem] rounded-[10px] max-[1000px]:w-full">
                 <div className='px-20 py-12 flex flex-col gap-6 items-end max-[1000px]:flex-col max-[1000px]:items-center max-[1000px]:px-4'>
                     <div className='w-full'>
                         <h2 className='text-[2rem] max-[1024px]:text-[1.5rem] uppercase text-white font-extrabold leading-[1] font-MODERNIZ text-center'>
@@ -94,6 +94,7 @@ const Section1 = () => {
                                     placeholder='Enter Mobile No'
                                     value={formData.mobileNo}
                                     onChange={handleChange}
+                                    maxLength={15}
                                     required
                                 />
                             </div>
@@ -137,7 +138,7 @@ const Section1 = () => {
                     </form>
                 </div>
 
-                {message && <p className="text-center text-red-500 mt-4">{message}</p>}
+                {message && <p className="px-5 py-4 w-1/2 mx-auto text-center bg-transparent mb-3 rounded-lg border-2 border-[#ececec] text-white">{message}</p>}
             </div>
         </section>
     );

@@ -52,12 +52,14 @@ const Footer = () => {
           <Image src={footerbg} alt="Footer background" className="w-full h-full object-cover" />
         </div>
 
-        <div className="relative z-10 text-white container mx-auto px-20 items-center py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="relative z-10 text-white container mx-auto lg:px-20 items-center py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
 
           <div className="space-y-4">
             <Image src={logo} alt="Logo" className="w-20" />
             <span className="font-extralight block">let’s talk</span>
-            <div className="text-2xl md:text-3xl break-words">bookings@quicklease.ae</div>
+            <div className="text-2xl md:text-3xl break-words">
+              <a href="mailto:luxe@quicklease.ae">luxe@quicklease.ae</a>
+            </div>
 
             <div>
               <div className="font-bold text-lg mt-4">Address</div>
@@ -88,9 +90,8 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="font-bold text-lg">Branches</div>
             <ul className="font-extralight text-sm space-y-1">
-              <li>Barsha H.O: <Link href={"tel:97144087300"}>+971 (4) 40-87-300</Link></li>
-              <li>Emergency: <Link href={"tel:9715076010"}>+971 (56) 50-76-010</Link></li>
-              <li>Emergency: <Link href={"tel:971503027866"}>+971 (50) 30-27-866</Link></li>
+              <li>Barsha H.O: <Link href={"tel:971505079801"}>+971 505 079 801</Link></li>
+              <li>Emergency: <Link href={"tel:971505079801"}>+971 505 079 801</Link></li>
             </ul>
           </div>
 
@@ -120,8 +121,7 @@ const Footer = () => {
 
               <ul className="space-y-1 text-sm">
                 <li className="font-bold text-lg">Working hours</li>
-                <li className="font-extralight">Mon - Sat: 8:30 - 8:30</li>
-                <li className="font-extralight">Sunday: 10:00 - 8:30</li>
+                <li className="font-extralight">(24×7) Service Available</li>
               </ul>
             </div>
           </div>
@@ -132,7 +132,7 @@ const Footer = () => {
         </div>
 
         <button className="fixed bottom-8 right-8 max-[700px]:right-4 z-50">
-          <Link href="https://api.whatsapp.com/send?phone=97144087300" target="_blank">
+          <Link href="https://api.whatsapp.com/send?phone=971505079801" target="_blank">
             <Image src={whatsapp} alt="WhatsApp" className="w-20 max-[700px]:w-14" />
           </Link>
         </button>
