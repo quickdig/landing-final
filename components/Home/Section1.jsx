@@ -1,6 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useLanguage } from '@/app/context/LanguageContext';
+import { main } from '@/app/data/main';
 
 const Section1 = () => {
     const [formData, setFormData] = useState({
@@ -10,12 +12,25 @@ const Section1 = () => {
         // carModel: ''
     });
 
+    const { language, changeLanguage } = useLanguage();
+
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
     const [formKey, setFormKey] = useState(Date.now());
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleConversion = () => {
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'conversion', {
+                send_to: 'AW-842874525/M1-3CIeci4IYEJ399JED',
+                event_callback: () => {
+                    window.location = window.location.reload()
+                },
+            });
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -26,7 +41,7 @@ const Section1 = () => {
         // ✅ Required fields check
         // if (!formData.fullName || !formData.mobileNo || !formData.email || !formData.carModel) {
         if (!formData.fullName || !formData.mobileNo || !formData.email) {
-            setMessage('All fields are required!');
+            setMessage(main[language]["requiredFields"]);
             setLoading(false);
             return;
         }
@@ -42,16 +57,24 @@ const Section1 = () => {
             .post("https://testqds.com/new_quicklease/api/enquiries/request_form", form)
             .then((response) => {
                 console.log(response);
-                setMessage('Form submitted successfully!');
+                if (response.status === 200) {
+                    setMessage(main[language]["successSubmit"]);
+
+                    // handleConversion()
+                    // ✅ Form Reset
+                    setFormData({ fullName: '', mobileNo: '', email: '', carModel: '' });
+                    setFormKey(Date.now()); // Form ko re-render trigger karega
+
+                    setLoading(false);
+                } else {
+                    setMessage(main[language]["errorSubmit"]);
+                    setFormKey(Date.now()); // Form ko re-render trigger karega
+                    setLoading(false);
+                }
             });
 
 
 
-        // ✅ Form Reset
-        setFormData({ fullName: '', mobileNo: '', email: '', carModel: '' });
-        setFormKey(Date.now()); // Form ko re-render trigger karega
-
-        setLoading(false);
     };
 
     // ✅ Message 5 sec baad hide ho jayega
@@ -65,12 +88,12 @@ const Section1 = () => {
     }, [message]);
 
     return (
-        <section className='container mx-auto' id='booknow'>
+        <section className={`container mx-auto sectionOne_${language}`} id='booknow'>
             <div className="mx-auto w-full bg-[#401A89] mt-[6rem] pb-5 max-[1000px]:mt-[3rem] rounded-[10px] max-[1000px]:w-full">
                 <div className='px-20 py-12 flex flex-col gap-6 items-end max-[1000px]:flex-col max-[1000px]:items-center max-[1000px]:px-4'>
                     <div className='w-full'>
                         <h2 className='text-[2rem] max-[1024px]:text-[1.5rem] uppercase text-white font-extrabold leading-[1] font-MODERNIZ text-center'>
-                            Your Luxury Ride is Just One Step Away!
+                            {main[language]["secOneheading"]}
                         </h2>
                     </div>
                     <form onSubmit={handleSubmit} key={formKey} className='w-full '>
@@ -80,7 +103,7 @@ const Section1 = () => {
                                     className='px-4 w-full py-2  rounded-[10px] max-[1000px]:w-full'
                                     type="text"
                                     name="fullName"
-                                    placeholder='Enter Full Name'
+                                    placeholder={main[language]["enterfullName"]}
                                     value={formData.fullName}
                                     onChange={handleChange}
                                     required
@@ -88,10 +111,10 @@ const Section1 = () => {
                             </div>
                             <div>
                                 <input
-                                    className='px-4 w-full py-2  rounded-[10px] max-[1000px]:w-full'
+                                    className='px-4 w-full py-2 ar_input rounded-[10px] max-[1000px]:w-full'
                                     type="tel"
                                     name="mobileNo"
-                                    placeholder='Enter Mobile No'
+                                    placeholder={main[language]["entermobileNo"]}
                                     value={formData.mobileNo}
                                     onChange={handleChange}
                                     maxLength={15}
@@ -103,7 +126,7 @@ const Section1 = () => {
                                     className='px-4 w-full py-2  rounded-[10px] max-[1000px]:w-full'
                                     type="email"
                                     name="email"
-                                    placeholder='Enter Email'
+                                    placeholder={main[language]["enteremail"]}
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
@@ -130,8 +153,10 @@ const Section1 = () => {
                                     type="submit"
                                     className='bg-[#401A89] border-2 border-white w-full text-white px-6 py-2 rounded-[6px] max-[1000px]:px-20 max-[1000px]:rounded-full'
                                     disabled={loading}
+                                    id='submit'
+                                    value={"Submit"}
                                 >
-                                    {loading ? 'Loading...' : 'Submit'}
+                                    {loading ? main[language]["pleaseWait"] : main[language]["submit"]}
                                 </button>
                             </div>
                         </div>

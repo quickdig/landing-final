@@ -30,6 +30,7 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -62,7 +63,132 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+/* ################################### */
+/* ########## Arabic CSS ############# */
+/* ################################### */
+
+header.header_ar {
+  direction: rtl;
+}
+
+header.header_ar nav {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+div.banner_ar {
+  direction: rtl;
+}
+
+div.banner_ar div img.img_carbanner {
+  margin-left: 0;
+  margin-right: auto;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+section.sectionOne_ar {
+  direction: rtl;
+}
+
+section.sectionOne_ar input.ar_input {
+  direction: rtl;
+}
+
+section.sectionLuxury_ar {
+  direction: rtl;
+}
+
+div.sectionThree_ar {
+  direction: rtl;
+}
+
+div.sectionThree_ar div.ar_img {
+  margin-left: 0;
+  margin-right: auto;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+div.sectionThree_ar ul.ar_ul {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+div.sectionThree_ar ul.ar_ul .bullet:before {
+  right: -10px;
+  left: auto;
+}
+
+div.sectionFive_ar {
+  direction: rtl;
+}
+
+div.sectionFive_ar img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+div.sectionFive_ar div.svg_ar {
+  right: 0;
+  left: auto;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+div.sectionFive_ar div.border_headerAR {
+  border-left: none;
+  border-right: 2px solid #401A89;
+  padding-right: 5px;
+}
+
+section.sectionFour_ar {
+  direction: rtl;
+}
+
+
+section.sectionFour_ar div.ar_content {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+section.sectionFour_ar div.swiper-wrapper {
+  margin-right: -985;
+  margin-left: auto;
+}
+
+section.sectionFour_ar div.buttonGroup {
+  right: 0;
+  left: auto;
+  direction: ltr;
+}
+
+section.sectionFaq_ar {
+  direction: rtl;
+}
+
+div.sectionFooter_ar {
+  direction: rtl;
+}
+
+div.sectionFooter_ar ul li {
+  text-align: right;
+}
+
+
+div.sectionFooter_ar img.img_ar {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+div.sectionFooter_ar button.WhatsApp_ar {
+  left: 10;
+  right: auto;
 }

@@ -8,19 +8,19 @@ import Section4 from "./Section4";
 import Section5 from "./Section5";
 import FAQs from "./FAQs";
 // import Loader from "../Loader"
-const HomePage = () => {
+const HomePage = ({ lang }) => {
   // const { data, loading } = useFetch("home_content")
 
   // if (loading) return <Loader/>;
   return (
     <>
-      <Banner  />
-      <Section1/>
-      <Section2/>
-      <Section3/>
-      <Section5/>
-      <Section4/>
-      <FAQs/>
+      <Banner />
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section5 />
+      <Section4 />
+      <FAQs />
     </>
   )
 }

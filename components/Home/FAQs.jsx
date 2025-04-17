@@ -1,48 +1,77 @@
 "use client";
+import { useLanguage } from "@/app/context/LanguageContext";
+import { main } from "@/app/data/main";
 import React, { useState, useRef } from "react";
 
 const FAQs = () => {
 
   const [faqActive, setFaqActive] = useState(null);
   const contentRefs = useRef([]);
+  const { language } = useLanguage();
 
   const handleTab = (index) => {
     setFaqActive(faqActive === index ? null : index);
   };
-  const data = [
-    {
-      question: " What documents are required to rent a luxury car?",
-      answer: "A UAE resident can rent luxury cars through presenting their valid driving license together with their Emirates ID. All visitors need to present their passport together with their visa and their International Driving Permit (IDP).",
-    },
-    {
-      question: "Is there a security deposit required for luxury car rentals?",
-      answer: "Yes, Luxury car rental requires a security deposit which the renter can get refunded. The security deposit amount depends both on the type of vehicle and the length of the rental period.",
-    },
-    {
-      question: "Can I rent a luxury car without a credit card?",
-      answer: "Luxury car rental companies need customers to use a credit card both for payments and security deposits. However, contact us directly to determine alternative payment options which some rental companies might allow.",
-    },
-    {
-      question: "Are there mileage limits on luxury car rentals?",
-      answer: "Luxury car rentals impose a daily mileage restriction on their services. However, additional mileage is charged separately. Always review the rental terms before making reservations.",
-    },
-    {
-      question: "Do you offer delivery and pickup for luxury cars?",
-      answer: "Absolutely! Our company offers doorstep services for your convenience which makes your experience both hassle-free and convenient.",
-    },
-  ];
+  const data = {
+    en: [
+      {
+        question: " What documents are required to rent a luxury car?",
+        answer: "A UAE resident can rent luxury cars through presenting their valid driving license together with their Emirates ID. All visitors need to present their passport together with their visa and their International Driving Permit (IDP).",
+      },
+      {
+        question: "Is there a security deposit required for luxury car rentals?",
+        answer: "Yes, Luxury car rental requires a security deposit which the renter can get refunded. The security deposit amount depends both on the type of vehicle and the length of the rental period.",
+      },
+      {
+        question: "Can I rent a luxury car without a credit card?",
+        answer: "Luxury car rental companies need customers to use a credit card both for payments and security deposits. However, contact us directly to determine alternative payment options which some rental companies might allow.",
+      },
+      {
+        question: "Are there mileage limits on luxury car rentals?",
+        answer: "Luxury car rentals impose a daily mileage restriction on their services. However, additional mileage is charged separately. Always review the rental terms before making reservations.",
+      },
+      {
+        question: "Do you offer delivery and pickup for luxury cars?",
+        answer: "Absolutely! Our company offers doorstep services for your convenience which makes your experience both hassle-free and convenient.",
+      }
+    ],
+    ar: [
+      {
+        question: "ما هي المستندات المطلوبة لاستئجار سيارة فاخرة؟",
+        answer: "يمكن للمقيمين في دولة الإمارات العربية المتحدة استئجار سيارات فاخرة من خلال إبراز رخصة قيادة سارية المفعول وبطاقة الهوية الإماراتية. أما الزوار، فيحتاجون إلى إبراز جواز سفرهم مع تأشيرتهم ورخصة القيادة الدولية.",
+      },
+      {
+        question: "هل يُشترط دفع وديعة تأمين لاستئجار السيارات الفاخرة؟",
+        answer: "نعم، يتطلب استئجار السيارات الفاخرة دفع وديعة تأمين، ويمكن للمستأجر استردادها. يعتمد مبلغ الوديعة على نوع السيارة ومدة الاستئجار.",
+      },
+      {
+        question: "هل يمكنني استئجار سيارة فاخرة بدون بطاقة ائتمان؟",
+        answer: "تشترط شركات تأجير السيارات الفاخرة على العملاء استخدام بطاقة ائتمان للدفعات ودفع الوديعة التأمينية. مع ذلك، تواصل معنا مباشرةً لتحديد خيارات الدفع البديلة التي قد تتيحها بعض شركات التأجير.",
+      },
+      {
+        question: "هل هناك حدود لعدد الأميال المقطوعة لاستئجار السيارات الفاخرة؟",
+        answer: "تفرض شركات تأجير السيارات الفاخرة قيودًا على عدد الأميال المقطوعة يوميًا على خدماتها. مع ذلك، تُفرض رسوم إضافية على المسافة المقطوعة بشكل منفصل. يُرجى مراجعة شروط التأجير دائمًا قبل الحجز",
+      },
+      {
+        question: "هل توفرون خدمة توصيل واستلام السيارات الفاخرة؟",
+        answer: "بالتأكيد! تُقدم شركتنا خدمات التوصيل إلى باب المنزل لراحتكم، مما يجعل تجربتكم مريحة وسهلة.",
+      },
+    ]
+  };
   return (
-    <section className="faq" id='faq'>
+    <section className={`faq sectionFaq_${language}`} id='faq'>
       <div className="container mx-auto flex max-[1024px]:flex-col gap-8 mb-8">
         <div className="faqHeading mt-4">
           <h2 className="h2 text-[2.5rem] leading-[1.3] text-[#401B89] font-MODERNIZ text-primary max-[1024px]:text-center max-[1350px]:text-[3rem] max-[1000px]:text-[1.5rem]">
-            FREQUENTLY ASKED QUESTION
+            {main[language]["faqHeader"]}
           </h2>
-          <div className="text-[#667085] max-[1024px]:leading-[1] max-[1024px]:text-center">At Quick Lease, we make luxury car rentals seamless with easy booking, top-tier service, and unmatched convenience. Reserve yours now!</div>
+          <div className="text-[#667085] max-[1024px]:leading-[1] max-[1024px]:text-center">
+            {main[language]["faqText"]}
+          </div>
         </div>
         <div className="faqBody py-4 px-4 bg-[#FBF9FF] rounded-3xl grid grid-cols-1 items-start gap-4 max-[1000px]:grid-cols-1 max-[1000px]:p-4">
-          {Array.isArray(data) &&
-            data.map((item, index) => {
+          {Array.isArray(data[language]) &&
+            data[language].map((item, index) => {
               const { question, answer } = item
               return (
                 <div className={`faqBodyBox bg-white rounded-2xl  py-4 px-4 ${faqActive === index ? "activee" : ""}`} key={index}>
