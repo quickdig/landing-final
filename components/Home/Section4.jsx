@@ -78,9 +78,11 @@ const Section4 = () => {
     return (
         <section className={`container mx-auto my-20 pt-20 max-[1024px]:pt-[13rem] relative max-[1024px]:my-[6rem] sectionFour_${language}`}>
             <div className='grid grid-cols-2 max-[1024px]:grid-cols-1 gap-4 absolute top-0'>
-                <div className='text-[#401B89] font-MODERNIZ text-[2rem] leading-[1] max-[1024px]:text-[1.5rem] max-[1024px]:text-center max-[370px]:text-[1.5rem] min-[1024px]:hidden'>{main[language]["testimonialHeader"]}</div>
+                <div dir={language === 'ar' ? 'rtl' : 'ltr'} className='text-[#401B89] font-MODERNIZ text-[2rem] leading-[1] max-[1024px]:text-[1.5rem] max-[1024px]:text-center max-[370px]:text-[1.5rem] min-[1024px]:hidden'>
+                    {main[language]["testimonialHeader"]}
+                </div>
                 <div><Image src={test} alt='' className='w-full object-cover h-full rounded-[20px]' /></div>
-                <div className='text-[#401B89] font-MODERNIZ text-[2rem] leading-[1] max-[1000px]:text-[2rem] max-[370px]:text-[1.7rem] max-[1024px]:hidden'>{main[language]["testimonialHeader"]}</div>
+                <div dir={language === 'ar' ? 'rtl' : 'ltr'} className='text-[#401B89] font-MODERNIZ text-[2rem] leading-[1] max-[1000px]:text-[2rem] max-[370px]:text-[1.7rem] max-[1024px]:hidden'>{main[language]["testimonialHeader"]}</div>
             </div>
 
             <div className='w-[80%] max-[1024px]:w-[95%] ar_content max-[1024px]:mx-auto max-[1024px]:p-2 max-[1024px]:rounded-[10px] ml-auto relative p-8 bg-white'>
@@ -122,7 +124,7 @@ const Section4 = () => {
                     {Array.isArray(data[language]) && data[language].map((item, index) => {
                         const { review, name, user } = item
                         return (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} dir={language === 'ar' ? 'rtl' : 'ltl'}>
                                 <div className="p-8 bg-[#FBF9FF] max-[1000px]:p-4">
                                     <Image src={Quotation_Icon} alt='' className='w-[5rem] ' />
                                     <p className='text-[#401A89] text-[1rem] ml-auto leading-[1.4] w-[93%] max-[1000px]:w-full max-[1000px]:text-[1rem] max-[1000px]:leading-[1]'>

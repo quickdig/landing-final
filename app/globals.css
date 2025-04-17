@@ -149,31 +149,6 @@ div.sectionFive_ar div.border_headerAR {
   padding-right: 5px;
 }
 
-section.sectionFour_ar {
-  direction: rtl;
-}
-
-
-section.sectionFour_ar div.ar_content {
-  margin-left: 0;
-  margin-right: auto;
-}
-
-section.sectionFour_ar div.swiper-wrapper {
-  margin-right: -985;
-  margin-left: auto;
-}
-
-section.sectionFour_ar div.buttonGroup {
-  right: 0;
-  left: auto;
-  direction: ltr;
-}
-
-section.sectionFaq_ar {
-  direction: rtl;
-}
-
 div.sectionFooter_ar {
   direction: rtl;
 }
